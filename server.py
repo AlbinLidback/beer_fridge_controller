@@ -13,17 +13,18 @@ def post(element, comand, key):
     if (key  != credentials.key):
         return "Noppe"
     
-    d = None
+    ret = None
 
     if comand == 'on':
-        d = driver.on(element)
+        ret = driver.on(element)
     if comand == 'off':
-        d = driver.off(element)
+        ret = driver.off(element)
     if comand == 'toggle':
-        d = driver.toggle(element)
+        ret = driver.toggle(element)
 
-    string = "Element: {}, Comand: {}, Driver {}".format(element, comand, d)
-    return {string}
+    string = "Element: {}, Comand: {}, Driver {}".format(element, comand, ret)
+    return string
 
 if __name__ == '__main__':
     run(host='localhost', port=credentials.PORT, debug=True, reloader=True)
+    driver = driver.driver()
