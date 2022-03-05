@@ -4,6 +4,8 @@ from bottle import get, post, request, run, HTTPResponse, abort
 import credentials
 import driver
 
+driv = None
+
 @get('/')
 def test():
     return "Test"
