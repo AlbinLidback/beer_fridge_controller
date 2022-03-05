@@ -8,6 +8,7 @@ import driver
 def test():
     return "Test"
 
+# http://localhost:7007/slinga_pin/toggle/aGfRSW5DLwZFiQ35hX0qGxWZwawYeFZ9
 @get('/<element>/<comand>/<key>')
 def post(element, comand, key):
     if (key  != credentials.key):
@@ -16,15 +17,15 @@ def post(element, comand, key):
     ret = None
 
     if comand == 'on':
-        ret = driver.on(element)
+        ret = driv.on(element)
     if comand == 'off':
-        ret = driver.off(element)
+        ret = driv.off(element)
     if comand == 'toggle':
-        ret = driver.toggle(element)
+        ret = driv.toggle(element)
 
     string = "Element: {}, Comand: {}, Driver {}".format(element, comand, ret)
     return string
 
 if __name__ == '__main__':
     run(host='localhost', port=credentials.PORT, debug=True, reloader=True)
-    driver = driver.driver()
+    driv = driver.driver()
