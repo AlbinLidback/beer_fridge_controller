@@ -4,57 +4,27 @@ from bottle import Bottle, response, request, template
 
 app = Bottle()
 
-page_text = {'title': 'PLZ WORK!',
+page_text = {'title': 'BFC',
+            'button_on': 'ON',
+            'button_off': 'OFF'
             }
 
 @app.route('/', method = "GET")
 def index():
     """Home page"""
 
-    #return template('simple.tpl', page_text)
-    return template('simple.tpl', page_text, message="Please enter your name")
+    return template('webpage.html', page_text, message = "")
 
 @app.route('/', method = "POST")
 def formhandler():
     """Handle the form submission"""
-
-    first = request.forms.get('first', type = str)
-    last = request.forms.get('last', type = str)
     
-    message = "Hello " + first + " " + last + "."
-    
-    return template("simple.tpl",page_text, message=message) 
+    message = "Received " + request.forms.get('btn')
 
-#@app.route('/person/<who:path>')
-#def homepage(who):
-#    """Generate the home page for a person"""
-#
-#    return "<p>This is the home page for " + who + ".</p>"
-
-#def dict_to_html(dd):
-#    """Generate an HTML list of the keys and
-#    values in the dictionary dd, return a
-#    string containing HTML"""
-#
-#    print(dd)
-#
-#    html = "<ul>"
-#    for key in dd.keys():
-#        html += "<li><strong>%s: </strong>%s</li>" % (key, dd[key])
-#    html += "</ul>"
-#    return html
-
-#@app.route('/about')
-#def about():
-#    response.content_type = 'text/plain'
-#    return "Tell me about yourself."
-
-#@app.route('/about')
-#def about():
-#
-#    result = dict_to_html(request.environ)
-#
-#    return result
+    if request.forms.get('btn') == ON:
+        driver.on(fridge)
+    elif request.forms.get('btn') == OFF:
+        driver.off(fridge)
     
 if __name__ == '__main__':
     app.run(debug=True, reloader=True)
