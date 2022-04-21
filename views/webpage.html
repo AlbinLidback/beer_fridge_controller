@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width:150px;
+}
+
+.button_on {
+    background-color: #4CAF50; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.button_on:hover {
+    background-color: #357a38;
+    color: white;
+}
+
+.button_off {
+    background-color: #f44336; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+
+.button_off:hover {
+    background-color: #d2190b;
+    color: white;
+}
+
+.center {
+    text-align: center
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
+</style>
+
+</style>
+
+    <title>{{title}}</title>
+
+</head>
+<body>
+
+<h1 class="center">Beer Fridge Controller</h1>
+
+<p class="center">Press one of the buttons to turn on/off the fridge.</p>
+
+<div class="flex-parent jc-center">
+    <form method="post" action="/">
+        <input type="submit" name="btn" value={{button_on}} class="button button_on">
+        <input type="submit" name="btn" value={{button_off}} class="button button_off">
+    </form>
+</div>
+
+<p class="center"><strong>OBS:</strong> This is still in trial.</p>
+
+<!-- <p>{{message}}</p> -->
+
+</body>
+</html>
