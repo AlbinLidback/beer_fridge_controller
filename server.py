@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-
 from bottle import Bottle, response, request, template
+import driver
 
 app = Bottle()
 
@@ -27,4 +27,5 @@ def formhandler():
         driver.off("fridge")
     
 if __name__ == '__main__':
+    driver.__init__()
     app.run(debug=True, reloader=True)
