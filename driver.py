@@ -2,14 +2,13 @@
 import RPi.GPIO as GPIO
 
 class driver:
-    pins = {"barskap_pin": 0, "led_pin": 1}
+    pins = {"fridge": 0}
 
     def __init__():
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-        GPIO.setup(led_pin, GPIO.OUT)
-        GPIO.setup(led_pin, GPIO.OUT)
+        GPIO.setup(fridge, GPIO.OUT)
         
     def toggle(name : str):
         pin = pins[name]
@@ -18,7 +17,7 @@ class driver:
         else:
             GPIO.output(pin, GPIO.HIGH)
     
-        print("{} set to {}".format(name, GPIO.input(pin)))
+        #print("{} set to {}".format(name, GPIO.input(pin)))
         return GPIO.input(pin)
 
 
@@ -27,15 +26,15 @@ class driver:
         pin = pins[name]
         GPIO.output(pin, GPIO.HIGH)
 
-        print("{} set to {}".format(name, GPIO.input(pin)))
-        return GPIO.input(pin)
+        #print("{} set to {}".format(name, GPIO.input(pin)))
+        #return GPIO.input(pin)
             
     def off(name : str):
         pin = pins[name]
         GPIO.output(pin, GPIO.LOW)
         
-        print("{} set to {}".format(name, GPIO.input(pin)))
-        return GPIO.input(pin)
+        #print("{} set to {}".format(name, GPIO.input(pin)))
+        #return GPIO.input(pin)
 
     def get_names():
         return list(pins)
