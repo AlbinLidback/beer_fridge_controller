@@ -22,9 +22,9 @@ def formhandler():
     message = "Received " + request.forms.get('btn')
 
     if request.forms.get('btn') == ON:
-        driver.on(fridge)
+        driver.on("fridge")
     elif request.forms.get('btn') == OFF:
-        driver.off(fridge)
+        driver.off("fridge")
     
 if __name__ == '__main__':
     app.run(debug=True, reloader=True)
