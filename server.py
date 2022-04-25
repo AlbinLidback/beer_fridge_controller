@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from bottle import Bottle, response, request, template
-import driver
+#import driver
 
 app = Bottle()
 
@@ -21,11 +21,11 @@ def formhandler():
     
     message = "Received " + request.forms.get('btn')
 
-    if request.forms.get('btn') == ON:
-        driver.on("fridge")
-    elif request.forms.get('btn') == OFF:
-        driver.off("fridge")
+    #if request.forms.get('btn') == ON:
+    #    driver.on("fridge")
+    #elif request.forms.get('btn') == OFF:
+    #    driver.off("fridge")
     
 if __name__ == '__main__':
-    driver.__init__()
+    #driver.__init__()
     app.run(debug=True, reloader=True)
