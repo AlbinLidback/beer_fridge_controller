@@ -1,2 +1,3 @@
 #!/bin/bash
-python3 server.py
+echo "Starting fridge server!"
+/home/pi/Documents/beer_fridge_controller/server.py
