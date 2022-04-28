@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
-from bottle import Bottle, response, request, template
+from bottle import Bottle, response, request, template, TEMPLATE_PATH
 import RPi.GPIO as GPIO
 import credentials
 
 app = Bottle()
+TEMPLATE_PATH.insert(0, '/home/pi/Documents/beer_fridge_controller/views')
 
 page_text = {'title': 'Fridge Controller',
             'button_on': 'ON',
