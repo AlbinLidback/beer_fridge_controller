@@ -1,10 +1,11 @@
-#!/usr/bin/env python3
+#!/bin/bash
+
 from bottle import Bottle, response, request, template
-#import driver
+import RPi.GPIO as GPIO
 
 app = Bottle()
 
-page_text = {'title': 'BFC',
+page_text = {'title': 'Fridge Controller',
             'button_on': 'ON',
             'button_off': 'OFF'
             }
@@ -21,11 +22,16 @@ def formhandler():
     
     message = "Received " + request.forms.get('btn')
 
-    #if request.forms.get('btn') == ON:
-    #    driver.on("fridge")
-    #elif request.forms.get('btn') == OFF:
-    #    driver.off("fridge")
+    if request.forms.get('btn') =='ON':
+        GPIO.output(2, GPIO.HIGH)
+    elif request.forms.get('btn') == 'OFF':
+        GPIO.output(2, GPIO.LOW)
+    
+    return template('webpage.html', page_text, message = "")
     
 if __name__ == '__main__':
-    #driver.__init__()
-    app.run(debug=True, reloader=True)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(2, GPIO.OUT)
+
+    app.run(host='192.168.1.8', port='8080', debug=True, reloader=True)
