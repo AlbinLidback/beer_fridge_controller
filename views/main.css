@@ -35,15 +35,12 @@
 }
 
 .center {
+    justify-content: center;
     text-align: center
 }
 
 .flex-parent {
   display: flex;
-}
-
-.jc-center {
-  justify-content: center;
 }
 
 button.margin-right {
