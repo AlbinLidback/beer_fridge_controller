@@ -1,0 +1,51 @@
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width:150px;
+}
+
+.button_on {
+    background-color: #4CAF50; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.button_on:hover {
+    background-color: #357a38;
+    color: white;
+}
+
+.button_off {
+    background-color: #f44336; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+
+.button_off:hover {
+    background-color: #d2190b;
+    color: white;
+}
+
+.center {
+    text-align: center
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
